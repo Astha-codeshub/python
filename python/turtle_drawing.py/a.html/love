@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #0c0e15;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #ffffff;
+    touch-action: none;
+}
+
+.game-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair;
+}
+
+.score-bar {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.score-box, .high-box {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 6px 16px;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 1px;
+}
+
+.score-num {
+    font-size: 22px;
+    font-weight: 800;
+    color: #4ade80;
+}
+
+.high-num {
+    font-size: 22px;
+    font-weight: 800;
+    color: #facc15;
+}
+
+.strikes-box {
+    display: flex;
+    gap: 8px;
+    font-size: 22px;
+}
+
+.strike {
+    opacity: 0.2;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.strike.active {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.2);
+    text-shadow: 0 0 12px #ef4444;
+}
+
+.start-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px;
+    pointer-events: none;
+    z-index: 20;
+    transition: opacity 0.4s ease;
+}
+
+.start-overlay.hidden {
+    opacity: 0;
+}
+
+.menu-content {
+    text-align: center;
+}
+
+.logo {
+    font-size: 44px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.logo .green {
+    color: #22c55e;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #94a3b8;
+    margin: 8px 0 20px 0;
+}
+
+.instruction-badge {
+    display: inline-block;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    color: #4ade80;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 8px 20px;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+    animation: pulseBadge 2s infinite alternate;
+}
+
+@keyframes pulseBadge {
+    0% { transform: scale(0.96); opacity: 0.8; }
+    100% { transform: scale(1.04); opacity: 1; }
+}
+
+.shake {
+    animation: screenShake 0.4s ease-in-out;
+}
+
+@keyframes screenShake {
+    0%, 100% { transform: translate(0, 0); }
+    20% { transform: translate(-10px, 8px); }
+    40% { transform: translate(10px, -8px); }
+    60% { transform: translate(-6px, 4px); }
+    80% { transform: translate(6px, -4px); }
+}

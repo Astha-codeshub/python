@@ -1,0 +1,23 @@
+import numpy as np
+data=np.genfromtxt("iris.csv",delimiter=",",skip_header=1,usecols=(1,2,3,4))
+print(data[:5])
+
+print("Data Type;\n",data.dtype)
+
+print("Mean:\n",np.mean(data,axis=0))
+print("Mediann:\n",np.median(data,axis=0))
+print("standard deviation:\n",np.std(data,axis=0))
+print("Minimum:\n",np.min(data,axis=0))
+print("Maximum:\n",np.max(data,axis=0))
+
+print("Row Sum:\n",np.sum(data,axis=1))
+print("Mean:\n",np.mean(data,axis=1))
+
+filtered=data[data[:,0]>5]
+print("filtered data",filtered)
+
+result=data[(data[:,0]>5) & (data[:,3]<1)]
+print("logical Conditions",result)
+
+sorted_data=data[daya[:,0].argsort()]
+print(sorted_data[:5])
